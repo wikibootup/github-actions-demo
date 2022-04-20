@@ -5,7 +5,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-    - run: npm install
-    - run: npm test
+      - name: Allow safe directory
+        shell: bash
+        run: git config --global --add safe.directory /github/workspace
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: "custom_branch"
+          destination_branch: "develop"
+          pr_title: "test git actions"
+          pr_body: "gogo pr_body"
+          pr_label: "label test"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
