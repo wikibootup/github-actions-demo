@@ -5,10 +5,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Allow safe directory
-        shell: bash
-        run: git config --global --add safe.directory /github/workspace
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: pull-request
