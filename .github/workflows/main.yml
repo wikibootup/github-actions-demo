@@ -5,11 +5,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e  # actions/checkout@v1
         with:
           fetch-depth: 0
       - name: pull-request
-        uses: repo-sync/pull-request@v1
+        uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3  # repo-sync/pull-request@v2
+
         with:
           source_branch: "custom_branch"
           destination_branch: "develop"
