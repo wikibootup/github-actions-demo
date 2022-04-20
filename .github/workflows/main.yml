@@ -8,6 +8,9 @@ jobs:
       - name: Allow safe directory
         shell: bash
         run: git config --global --add safe.directory /github/workspace
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: pull-request
         uses: repo-sync/pull-request@v2
         with:
